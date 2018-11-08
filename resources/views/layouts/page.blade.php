@@ -16,9 +16,10 @@
     <title>@yield('title')</title>
   </head>
   <body {{ isset($modelName) ? 'data-model-name='.strtolower($modelName) : '' }}>
+
     @if ($errors->any())
     <div class="alert alert-danger alert-top" role="alert">
-        <p>Sorry, there was a problem submitting your form. Details:</p>
+        <p>Error detail lead text:</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -47,8 +48,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark static-top">
       <div class="container">
         <a class="navbar-brand" href="/">Laravel</a>
-        {{-- Only show nav items if logged in. --}}
-        @if(Auth::check())
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,36 +58,10 @@
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-            {{-- Editor or higher access required for managing pages. --}}
-            @can('editor-functions', auth()->user())  
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('pages') ? 'active' : '' }}" href="/pages">Manage Pages</a>
-            </li>
-            @endcan
-
-            {{-- Only admins can manage global config and users. --}}
-            @can('admin-functions', auth()->user())            
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('options') ? 'active' : '' }}" href="/options">Set Options</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('users') ? 'active' : '' }}" href="/users">Manage Users</a>
-            </li>
-            @endcan
-
-            {{-- Any logged in viewer can see logs. --}}
-            <li class="nav-item">
-              <a class="nav-link {{ Request::is('logs') ? 'active' : '' }}" href="/logs">View Logs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/logout">Log out</a>
-            </li>
           </ul>
         </div>
-        @endif
       </div>
     </nav>
-
     <div class="container">
     @if (session('status'))
       <div class="card-body">
@@ -98,8 +71,7 @@
       </div>
     </div>
     @endif
-    
-    <div class="container container__main-container">      
+    <div class="container container__main-container">
       <!-- Page Content -->
       <div class="col-lg-12 clearfix">
         <div class="mt-5 float-md-left">
@@ -108,12 +80,6 @@
         <p>{{ $introText }}</p>
         @endif
         </div>
-        <div class="mt-5 float-md-right">
-          {{-- Only show if relevant to the page. --}}
-          @if (isset($showAddButton) && $showAddButton)
-          <button id="add-toggle" class="btn btn-success btn-right" type="button" data-toggle="collapse" data-target="#add-form" aria-expanded="false" aria-controls="add-form"></button>
-          @endif
-        </div>         
       </div>
       @yield('content')
     </div> 
@@ -125,6 +91,6 @@
 
     <!-- App Scripts -->
     <script src="{{ URL::asset('js/app.js') }}"></script>
-    <script src="{{ URL::asset('js/manage.js') }}"></script>
+    <script src="{{ URL::asset('js/page.js') }}"></script>
   </body>
 </html>
