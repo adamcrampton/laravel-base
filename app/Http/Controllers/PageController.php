@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
+use App\Models\Page;
+use App\Models\Option;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public $globalOptions;
+    public $pageData;
+
+
+    public function __construct(Page $page, Option $option) {
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,12 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        // Return public home page.
+        return view('page.index', [
+            'pageTitle' => 'Home',
+            'pageData' => $this->pageData,
+            'globalOptions' => $this->globalOptions
+        ]);
     }
 
     /**
