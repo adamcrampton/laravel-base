@@ -7,7 +7,7 @@
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('vendor/venobox/venobox.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/venobox/css/venobox.css') }}">
     
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
@@ -83,12 +83,11 @@
       </div>
       @yield('content')
     </div> 
-    <!-- Vendor JS -->
-    <script src="{{ URL::asset('vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('vendor/jqueryui/jquery-ui.min.js') }}"></script>
-    <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ URL::asset('vendor/venobox/venobox.min.js') }}"></script>
-
+    
+    <!-- Vendor Scripts -->
+    <script src="{{ URL::asset('js/manifest.js') }}"></script>
+    <script src="{{ URL::asset('js/vendor.js') }}"></script>
+    
     <!-- App Scripts -->
     <script src="{{ URL::asset('js/app.js') }}"></script>
     <script src="{{ URL::asset('js/page.js') }}"></script>
