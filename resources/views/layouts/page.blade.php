@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/manage.css') }}">
 
+    <!-- Vendor Scripts -->
+    <script src="{{ URL::asset('js/manifest.js') }}"></script>
+    <script src="{{ URL::asset('js/vendor.js') }}"></script>
+
     <title>@yield('title')</title>
   </head>
   <body {{ isset($modelName) ? 'data-model-name='.strtolower($modelName) : '' }}>
@@ -83,10 +87,6 @@
       </div>
       @yield('content')
     </div> 
-    
-    <!-- Vendor Scripts -->
-    <script src="{{ URL::asset('js/manifest.js') }}"></script>
-    <script src="{{ URL::asset('js/vendor.js') }}"></script>
     
     <!-- App Scripts -->
     <script src="{{ URL::asset('js/app.js') }}"></script>
