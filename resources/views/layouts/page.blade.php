@@ -81,7 +81,7 @@
         <div class="mt-5 float-md-left">
         <h1>{{ isset($pageTitle) ? $pageTitle : '' }}</h1>
         @if (isset($introText))
-        <p>{{ $introText }}</p>
+        <p id="introText">{{ $introText }}</p>
         @endif
         </div>
       </div>
