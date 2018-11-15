@@ -79,10 +79,7 @@
       <!-- Page Content -->
       <div class="col-lg-12 clearfix">
         <div class="mt-5 float-md-left">
-        <h1>{{ isset($pageTitle) ? $pageTitle : '' }}</h1>
-        @if (isset($introText))
-        <p id="introText">{{ $introText }}</p>
-        @endif
+        <h1>{{ isset($pageTitle) ? $pageTitle : 'Untitled' }}</h1>
         </div>
       </div>
       @yield('content')
