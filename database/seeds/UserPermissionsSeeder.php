@@ -13,7 +13,6 @@ class UserPermissionsTableSeeder extends Seeder
     public function run()
     {
         // Set up default permissions.
-        // Add default config.
         DB::table('user_permissions')->insert([
             [
             	'permission' => 'administrator',
