@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Option;
-use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public $globalOptions;
     public $pageData;
-
 
     public function __construct(Page $page, Option $option) {
 
