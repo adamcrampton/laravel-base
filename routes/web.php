@@ -1,7 +1,7 @@
 <?php
 
 // Front end routes.
-Route::resource('/', 'PageController');
+Route::resource('/', 'LoopController');
 
 // Admin routes.
 // Route::resource('manage', 'ManageController');

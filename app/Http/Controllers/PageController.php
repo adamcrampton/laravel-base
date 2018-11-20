@@ -22,12 +22,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        // Return public home page.
-        return view('page.index', [
-            'pageTitle' => 'Home',
-            'pageData' => $this->pageData,
-            'globalOptions' => $this->globalOptions
-        ]);
+        //
     }
 
     /**

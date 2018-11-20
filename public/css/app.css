@@ -1,6 +1,14 @@
-.container.container__main-container {
-  padding-top: 56px;
+body {
+  padding-top: 54px;
 }
-.alert-top {
+body .alert-top {
   top: 56px;
+}
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+  body .alert-top {
+    top: 56px;
+  }
 }
