@@ -20,6 +20,13 @@ class OptionsTableSeeder extends Seeder
                 'option_value' => 'admin@site.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'option_nice_name' => 'Post Loop Limit',
+                'option_name' => 'post_loop_limit',
+                'option_value' => 10,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ]);
     }

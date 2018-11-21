@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class TaxonomyLinksTableSeeder extends Seeder
+class TaxonomyTypesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,23 +12,14 @@ class TaxonomyLinksTableSeeder extends Seeder
      */
     public function run()
     {
-        // Set up example taxonomy linkages.
-        DB::table('taxonomy_links')->insert([
+        DB::table('taxonomy_types')->insert([
             [
-            	'pages_fk' => 1,
-                'taxonomies_fk' => 1,
+            	'taxonomy_type_name' => 'category',
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-            	'pages_fk' => 2,
-                'taxonomies_fk' => 1,
-            	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-            	'pages_fk' => 3,
-                'taxonomies_fk' => 1,
+            	'taxonomy_type_name' => 'tag',
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class TagsTableSeeder extends Seeder
+class TaxonomiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,23 +12,22 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Set up example tags.
-        DB::table('tags')->insert([
+        DB::table('taxonomies')->insert([
             [
-            	'tag_name' => 'Example Tag 1',
-            	'tag_uri' => 'example-tag-1',
+            	'taxonomy_name' => 'tech',
+                'taxonomy_types_fk' => 1,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-            	'tag_name' => 'Example Tag 2',
-            	'tag_uri' => 'example-tag-2',
+            	'taxonomy_name' => 'business',
+                'taxonomy_types_fk' => 1,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-            	'tag_name' => 'Example Tag 3',
-            	'tag_uri' => 'example-tag-3',
+            	'taxonomy_name' => 'cars',
+                'taxonomy_types_fk' => 2,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
