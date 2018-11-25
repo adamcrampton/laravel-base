@@ -16,11 +16,12 @@ class LoopController extends Controller
         // Get default options and active page data.
         $this->globalOptions = $option->getGlobalConfig();
 
-        $loopLimit = $this->globalOptions->where('option_name', 'post_loop_limit')->pluck('option_value');
+        $loopLimit = $this->globalOptions
+                        ->where('option_name', 'post_loop_limit')
+                        ->first()
+                        ->option_value;
 
-        // dd($loopLimit);
-
-        // $this->pageData = $page->getPages($this->globalOptions->post_loop_limit);
+        $this->pageData = $page->getPages($loopLimit);
     }
 
     /**
