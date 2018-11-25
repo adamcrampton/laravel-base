@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(OptionsTableSeeder::class);
         $this->call(PagesTableSeeder::class);
-        $this->call(TaxonomiesTableSeeder::class);
+        $this->call(TaxonomyEntitiesTableSeeder::class);
         $this->call(TaxonomyLinksTableSeeder::class);
         $this->call(TaxonomyTypesTableSeeder::class);
         $this->call(UserPermissionsTableSeeder::class);

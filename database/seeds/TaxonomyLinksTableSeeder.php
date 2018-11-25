@@ -16,19 +16,19 @@ class TaxonomyLinksTableSeeder extends Seeder
         DB::table('taxonomy_links')->insert([
             [
             	'pages_fk' => 1,
-                'taxonomies_fk' => 1,
+                'taxonomy_entities_fk' => 1,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
             	'pages_fk' => 2,
-                'taxonomies_fk' => 1,
+                'taxonomy_entities_fk' => 1,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
             	'pages_fk' => 3,
-                'taxonomies_fk' => 1,
+                'taxonomy_entities_fk' => 1,
             	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             	'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

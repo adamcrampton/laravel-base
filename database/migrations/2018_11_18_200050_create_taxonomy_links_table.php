@@ -16,7 +16,7 @@ class CreateTaxonomyLinksTable extends Migration
         Schema::create('taxonomy_links', function (Blueprint $table) {
             $table->increments('id');   
             $table->integer('pages_fk');
-            $table->integer('taxonomies_fk');
+            $table->integer('taxonomy_entities_fk');
             $table->timestamps();
         });
     }
