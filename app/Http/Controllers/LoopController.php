@@ -9,7 +9,7 @@ use App\Models\Option;
 class LoopController extends Controller
 {
 	private $globalOptions;
-    public $pageData;
+    private $pageData;
 
     /**
      * Set up default items used in the controller
