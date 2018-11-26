@@ -11,11 +11,18 @@ class LoopController extends Controller
 	private $globalOptions;
     public $pageData;
 
+    /**
+     * Set up default items used in the controller
+     * @param Page   $page   Page model
+     * @param Option $option Option model
+     */
+    
     public function __construct(Page $page, Option $option)
     {
         // Get default options and active page data.
         $this->globalOptions = $option->getGlobalConfig();
 
+        // Fetch page data for article loop.
         $loopLimit = $this->globalOptions
                         ->where('option_name', 'post_loop_limit')
                         ->first()
@@ -33,7 +40,8 @@ class LoopController extends Controller
     {
         // Return public home page.
         return view('loop.index', [
-
+            'pageData' => $this->pageData
         ]);
     }
 }
+

@@ -8,10 +8,7 @@ use App\Models\Option;
 
 class PageController extends Controller
 {
-    public $globalOptions;
-    public $pageData;
-
-    public function __construct(Page $page, Option $option) {
+    public function __construct() {
 
     }
 

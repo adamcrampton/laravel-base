@@ -4,7 +4,7 @@
 Route::resource('/', 'LoopController');
 
 // Admin routes.
-// Route::resource('manage', 'ManageController');
+Route::resource('manage', 'ManageController');
 Route::resource('options', 'OptionController');
 
 // Auth routes.
