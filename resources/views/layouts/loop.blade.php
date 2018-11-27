@@ -1,9 +1,9 @@
 @include('includes.head')
   <body {{ isset($modelName) ? 'data-model-name='.strtolower($modelName) : '' }}>
   {{--  Errors and alerts --}}
-  @include('alerts')
+  @include('includes.alerts')
     {{-- Navigation --}}
-    @include('nav')
+    @include('includes.nav')
     {{-- Page Content --}}
     <div class="container">
       <div class="row">
@@ -13,19 +13,20 @@
             <small>Secondary Text</small>
           </h1>
           <!-- Blog Post -->
+          @foreach($pageData as $page => $pageValues)
           <div class="card mb-4">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <img class="card-img-top" src="{{ $pageValues->image_path }}" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">Post Title</h2>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <h2 class="card-title">{{ $pageValues->title }}</h2>
+              <p class="card-text">{{ $pageValues->excerpt }}</p>
+              <a href="{{ $pageValues->uri }}" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Posted on November 20, 2018 by
               <a href="#">Adam Crampton</a>
             </div>
           </div>
-
+          @endforeach
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
