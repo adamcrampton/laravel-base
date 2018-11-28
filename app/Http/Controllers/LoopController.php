@@ -12,11 +12,10 @@ class LoopController extends Controller
     private $pageData;
 
     /**
-     * Set up default items used in the controller
-     * @param Page   $page   Page model
-     * @param Option $option Option model
+     * Set up default items used in the controller.
+     * @param Page   $page
+     * @param Option $option
      */
-    
     public function __construct(Page $page, Option $option)
     {
         // Get default options and active page data.
@@ -29,6 +28,8 @@ class LoopController extends Controller
                         ->option_value;
 
         $this->pageData = $page->getPages($loopLimit);
+
+        // dd($this->pageData);
     }
 
     /**

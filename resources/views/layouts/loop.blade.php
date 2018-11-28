@@ -17,13 +17,13 @@
           <div class="card mb-4">
             <img class="card-img-top" src="{{ $pageValues->image_path }}" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">{{ $pageValues->title }}</h2>
+              <h2 class="card-title"><a href="{{ route('page.show', ['page' => $pageValues->uri]) }}">{{ $pageValues->title }}</a></h2>
               <p class="card-text">{{ $pageValues->excerpt }}</p>
-              <a href="{{ $pageValues->uri }}" class="btn btn-primary">Read More &rarr;</a>
+              <a href="{{ route('page.show', ['page' => $pageValues->uri]) }}" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Posted on November 20, 2018 by
-              <a href="#">Adam Crampton</a>
+              <a href="{{ route('author.show', ['author' => $pageValues->user->username]) }}  {{ $pageValues->user->name }}">{{ $pageValues->user->name }}</a>
             </div>
           </div>
           @endforeach

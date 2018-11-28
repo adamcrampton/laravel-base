@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 
+     * Get the pages that belong to this user.
+     * @return\Illuminate\Database\Eloquent\Collection
+     */
+    public function pages()
+    {
+        return $this->hasMany('App\Models\Page');
+    }
 }

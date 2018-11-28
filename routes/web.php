@@ -2,6 +2,8 @@
 
 // Front end routes.
 Route::resource('/', 'LoopController');
+Route::resource('page', 'PageController');
+Route::resource('author', 'AuthorController');
 
 // Admin routes.
 Route::resource('manage', 'ManageController');

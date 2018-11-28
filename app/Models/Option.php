@@ -8,7 +8,7 @@ class Option extends Model
 {	
 	/**
 	 * Fetch all global options
-	 * @return\Illuminate\Database\Eloquent\Collection Collection of option data
+	 * @return\Illuminate\Database\Eloquent\Collection
 	 */
 	public function getGlobalConfig() {
     	return Option::all();	
