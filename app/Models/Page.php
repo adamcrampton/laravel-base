@@ -25,4 +25,13 @@ class Page extends Model
     {
     	return $this->hasOne('App\Models\User', 'id', 'author_user_fk');
     }
+
+    /**
+     * Get the taxonomy entities that are connected with this page.
+     * @return\Illuminate\Database\Eloquent\Collection
+     */
+    public function taxonomy_entities()
+    {
+        return $this->belongsToMany('App\Models\TaxonomyEntity', 'taxonomy_links', 'pages_fk', 'taxonomy_entities_fk');
+    }
 }
