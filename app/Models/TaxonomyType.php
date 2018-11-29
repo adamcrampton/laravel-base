@@ -12,6 +12,6 @@ class TaxonomyType extends Model
      */
     public function taxonomy_entities()
     {
-    	return $this->hasMany('App\Models\TaxonomyEntity', 'taxonomy_types_fk');
+    	return $this->belongsToMany('App\Models\TaxonomyEntity', 'taxonomy_types_fk');
     }
 }

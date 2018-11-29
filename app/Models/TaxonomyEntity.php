@@ -6,6 +6,30 @@ use Illuminate\Database\Eloquent\Model;
 
 class TaxonomyEntity extends Model
 {
+	/**
+	 * Get a list of categories with optional limit and order parameters.
+	 * @param  integer $limit
+	 * @param  string  $order
+	 * @return @return\Illuminate\Database\Eloquent\Collection
+	 */
+	public function getCategories($limit = 5, $order = 'DESC')
+	{
+		$categories = TaxonomyEntity::whereHas('taxonomy_types', function($query) {
+			$query->where('taxonomy_type_name', 'category');
+		})->get();
+	}
+
+	/**
+	 * Get a list of tags with optional limit and order parameters.
+	 * @param  integer $limit
+	 * @param  string  $order
+	 * @return @return\Illuminate\Database\Eloquent\Collection
+	 */
+	public function getTags($limit = 5, $order = 'DESC')
+	{
+		dd('tag test');
+	}
+
     /**
      * Get the pages that relate to this taxonomy entity.
      * @return\Illuminate\Database\Eloquent\Collection
@@ -21,6 +45,6 @@ class TaxonomyEntity extends Model
      */
     public function taxonomy_types()
     {
-    	return $this->hasOne('App\Models\TaxonomyType', 'id', 'taxonomy_types_fk');
+    	return $this->hasMany('App\Models\TaxonomyType', 'id', 'taxonomy_types_fk');
     }
 }
