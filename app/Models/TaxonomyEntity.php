@@ -7,37 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class TaxonomyEntity extends Model
 {
 	/**
-	 * Get a list of categories with optional limit and order parameters.
+	 * Get a list of entities with optional order by and limit parameters.
+	 * @param  string  $taxonomyType
+	 * @param  string  $orderColumn
+	 * @param  string  $orderDirection
 	 * @param  integer $limit
-	 * @param  string  $order
 	 * @return @return\Illuminate\Database\Eloquent\Collection
 	 */
-	public function getCategories($limit = 5, $order = 'DESC')
+	public function getEntities($taxonomyType = 'category', $orderColumn = 'created_at', $orderDirection = 'desc', $limit = 5)
 	{
-		$categories = TaxonomyEntity::whereHas('taxonomy_types', function($query) {
-			$query->where('taxonomy_type_name', 'category');
+		$entityData = TaxonomyEntity::whereHas('taxonomy_types', function($query) use ($taxonomyType, $orderColumn, $orderDirection, $limit) {
+			$query->where('taxonomy_type_name', $taxonomyType)
+					->orderBy($orderColumn, $orderDirection)
+					->take($limit);
 		})->get();
-	}
 
-	/**
-	 * Get a list of tags with optional limit and order parameters.
-	 * @param  integer $limit
-	 * @param  string  $order
-	 * @return @return\Illuminate\Database\Eloquent\Collection
-	 */
-	public function getTags($limit = 5, $order = 'DESC')
-	{
-		dd('tag test');
+		return $entityData;
 	}
-
-    /**
-     * Get the pages that relate to this taxonomy entity.
-     * @return\Illuminate\Database\Eloquent\Collection
-     */
-    public function pages()
-    {
-    	return $this->belongsToMany('App\Models\Page', 'taxonomy_links', 'taxonomy_entities_fk', 'pages_fk');
-    }
 
     /**
      * Get taxonomy type for this taxonomy entity.

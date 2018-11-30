@@ -46,8 +46,22 @@ class LoopController extends Controller
     {
         // Return public home page.
         return view('loop.index', [
-            'pageData' => $this->pageData
+            'pageData' => $this->pageData,
+            'sidebarData' => $this->sidebarData
         ]);
+    }
+
+    /**
+     * Get all required data for displaying in the front end sidebar.
+     * @param  TaxonomyEntity $taxonomyEntity
+     * @return array
+     */
+    private function getSidebarData($taxonomyEntity)
+    {
+        $sidebarData = [];
+        $sidebarData['taxonomyData'] = $this->getSidebarTaxonomyData($taxonomyEntity);
+
+        return $sidebarData; 
     }
 
     /**
@@ -55,17 +69,17 @@ class LoopController extends Controller
      * @param  TaxonomyEntity $taxonomyEntity
      * @return array
      */
-    private function getSidebarData($taxonomyEntity)
+    private function getSidebarTaxonomyData($taxonomyEntity)
     {
         $taxonomyData = [];
 
-        // Fetch 5 categories.
-        $taxonomyData['categoryData'] = $taxonomyEntity->getCategories(5, 'DESC');
+         // Fetch 5 categories.
+        $taxonomyData['categoryData'] = $taxonomyEntity->getEntities('category', 'created_at', 'desc', 5);
         
         // Fetch 5 tags.
-        $taxonomyData['tagData'] = $taxonomyEntity->getTags(5, 'DESC');
+        $taxonomyData['tagData'] = $taxonomyEntity->getEntities('tag', 'created_at', 'desc', 5);
 
-        return $taxonomyData; 
+        return $taxonomyData;
     }
 }
 
