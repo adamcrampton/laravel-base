@@ -16,6 +16,7 @@ class CreateTaxonomyEntitiesTable extends Migration
         Schema::create('taxonomy_entities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('taxonomy_entity_name');
+            $table->string('taxonomy_entity_slug')->unique();
             $table->integer('taxonomy_types_fk');
             $table->timestamps();
         });
