@@ -21,6 +21,7 @@ class CreatePagesTable extends Migration
             $table->text('content');
             $table->string('excerpt');
             $table->text('image_path');
+            $table->string('status');
             $table->timestamps();
         });
     }

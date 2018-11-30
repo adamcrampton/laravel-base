@@ -31,7 +31,8 @@ class LoopController extends Controller
                         ->option_value;
 
         // Fetch page data for article loop.
-        $this->pageData = $page->getPages($loopLimit);
+        $this->pageData = $page->where('status', 'published')
+                                ->paginate($loopLimit);
 
         // Fetch taxonomy data for sidebar.
         $this->sidebarData = $this->getSidebarData($taxonomyEntity);
