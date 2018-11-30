@@ -1,14 +1,15 @@
 <!-- Categories Widget -->
-<?php dd($sidebarData) ?>
 <div class="card my-4">
   <h5 class="card-header">Categories</h5>
   <div class="card-body">
     <div class="row">
       <div class="col-lg-6">
         <ul class="list-unstyled mb-0">
+          @foreach($sidebarData['taxonomyData']['categoryData'] as $index => $entityValues)
           <li>
-            <a href="#">Item</a>
+            <a href="#">{{ $entityValues->taxonomy_entity_name }}</a>
           </li>
+          @endforeach
         </ul>
       </div>
       <div class="col-lg-6">
