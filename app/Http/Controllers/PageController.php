@@ -51,7 +51,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+        dd($page);
     }
 
     /**
@@ -62,7 +62,7 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        //   
     }
 
     /**

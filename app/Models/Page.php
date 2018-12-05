@@ -6,6 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {	
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'uri';
+    }
+
 	/**
 	 * Get pages with optional limit.
 	 * @param int $limit Limit for query.
