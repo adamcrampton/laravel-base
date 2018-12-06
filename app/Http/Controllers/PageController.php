@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Option;
 
-class PageController extends Controller
+class PageController extends AppController
 {
-    public function __construct() {
-
+    /**
+     * Set up default items used in the controller.
+     * @param Page   $page
+     */
+    public function __construct(Page $page) {
+        // Initialise parent constructor, passing in controller type value.
+        parent::__construct('page');
     }
 
     /**
@@ -51,7 +56,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        dd($page);
+        //
     }
 
     /**

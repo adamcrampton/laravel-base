@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Option;
 use App\Models\TaxonomyEntity;
+use Illuminate\Support\Facades\Route;
 
 class AppController extends Controller
 {
@@ -12,8 +13,9 @@ class AppController extends Controller
     private $optionModel;
     private $taxonomyEntityModel;
     protected $globalOptions;
+    protected $menuItems;
     protected $sidebarData;
-    
+
     /**
      * Set up default items used in child controllers.
      * @param string $controllerType
@@ -30,13 +32,15 @@ class AppController extends Controller
     	// Get default options and active page data.
         $this->globalOptions = $this->getGlobalConfig();
 
+        // Get menu items for the controller type.
+        $this->menuItems = [];
+
         // Fetch taxonomy data for sidebar.
-        $this->sidebarData = $this->getSidebarData($controllerType);                
+        $this->sidebarData = $this->getSidebarData(); 
     }
 
     /**
      * Get global config from the Option model.
-     * @param  Option $option
      * @return \Illuminate\Database\Eloquent\Collection
      */
     private function getGlobalConfig()
@@ -46,10 +50,9 @@ class AppController extends Controller
 
 	/**
      * Get all required data for displaying in the front end sidebar.
-     * @param  TaxonomyEntity $taxonomyEntity
      * @return array
      */
-    private function getSidebarData($controllerType)
+    private function getSidebarData()
     {
         $sidebarData = [];
         $sidebarData['taxonomyData'] = $this->getSidebarTaxonomyData();
@@ -59,7 +62,6 @@ class AppController extends Controller
 
     /**
      * Get taxonomy data for displaying in the front end sidebar.
-     * @param  TaxonomyEntity $taxonomyEntity
      * @return array
      */
     private function getSidebarTaxonomyData()
