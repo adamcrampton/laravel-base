@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Option;
 use App\Models\TaxonomyEntity;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 class AppController extends Controller
 {
@@ -33,10 +34,24 @@ class AppController extends Controller
         $this->globalOptions = $this->getGlobalConfig();
 
         // Get menu items for the controller type.
-        $this->menuItems = [];
+        $this->menuItems = []; //TODO
 
         // Fetch taxonomy data for sidebar.
         $this->sidebarData = $this->getSidebarData(); 
+    }
+
+    /**
+     * Return Carbon formatted date.
+     * @param string $dateString
+     * @param string $format
+     * @return string
+     */
+    protected function formatDate($dateString, $format = 'post')
+    {
+        // Create Carbon object and convert.
+        $dt = Carbon::createFromFormat('Y-m-d H:i:s', $dateString);
+
+        return $dt->toFormattedDateString();
     }
 
     /**

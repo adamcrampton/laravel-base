@@ -49,14 +49,21 @@ class PageController extends AppController
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource - public front end.
      *
      * @param  \App\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function show(Page $page)
     {
-        //
+        // Transform date into human readable format.
+
+
+        return view('page.index', [
+            'pageValues' => $page,
+            'sidebarData' => $this->sidebarData,
+            'lastUpdated' => $this->formatDate($page->updated_at, 'post')
+        ]);
     }
 
     /**

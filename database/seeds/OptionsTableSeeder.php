@@ -35,6 +35,7 @@ class OptionsTableSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
+            [
                 'option_nice_name' => 'Manage Menu Items',
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize(['Admin Home' => '/manage']),
