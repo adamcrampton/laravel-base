@@ -31,14 +31,19 @@ class OptionsTableSeeder extends Seeder
             [
                 'option_nice_name' => 'Public Menu Items',
                 'option_name' => 'public_menu_items',
-                'option_value' => serialize(['Home' => '/']),
+                'option_value' => serialize(['Manage' => 'manage.index']),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'option_nice_name' => 'Manage Menu Items',
                 'option_name' => 'manage_menu_items',
-                'option_value' => serialize(['Admin Home' => '/manage']),
+                'option_value' => serialize([
+                                    'Admin Home' => 'manage.index',
+                                    'Pages' => 'manage-pages.index',
+                                    'Options' => 'manage-options.index',
+                                    'Categories' => 'manage-categories.index'
+                                    ]),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

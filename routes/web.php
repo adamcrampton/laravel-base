@@ -12,3 +12,6 @@ Route::resource('options', 'OptionController');
 // Auth routes.
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Auth::routes(['register' => false]);
+
+Route::get('/home', 'HomeController@index')->name('home');

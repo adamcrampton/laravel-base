@@ -5,8 +5,18 @@ namespace App\Http\Controllers;
 use App\Manage;
 use Illuminate\Http\Request;
 
-class ManageController extends Controller
+class ManageController extends AppController
 {
+    /**
+     * Set up default items used in the controller.
+     * @param Page   $page
+     */
+    public function __construct()
+    {
+        // Initialise parent constructor, passing in controller type value.
+        parent::__construct('manage');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +24,11 @@ class ManageController extends Controller
      */
     public function index()
     {
-        //
+        // Return manage home page.
+        return view('manage.index', [
+            'pageTitle' => '',
+            'pageIntro' => ''
+        ]);
     }
 
     /**
