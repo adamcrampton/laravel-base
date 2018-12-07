@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Page;
 
-class LoopController extends AppController
+class LoopController extends PublicSiteController
 {
     private $pageData;
-
+    
     /**
      * Set up default items used in the controller.
      * @param Page   $page
@@ -38,6 +38,7 @@ class LoopController extends AppController
     {
         // Return public home page.
         return view('loop.index', [
+            'menuData' => $this->menuData,
             'pageData' => $this->pageData,
             'sidebarData' => $this->sidebarData
         ]);

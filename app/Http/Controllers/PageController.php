@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Page;
-use App\Models\Option;
 
-class PageController extends AppController
+class PageController extends PublicSiteController
 {
     /**
      * Set up default items used in the controller.
@@ -56,9 +55,6 @@ class PageController extends AppController
      */
     public function show(Page $page)
     {
-        // Transform date into human readable format.
-
-
         return view('page.index', [
             'pageValues' => $page,
             'sidebarData' => $this->sidebarData,
