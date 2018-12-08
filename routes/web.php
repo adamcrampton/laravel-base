@@ -7,7 +7,7 @@ Route::resource('author', 'AuthorController');
 
 // Admin routes.
 Route::resource('manage', 'ManageController');
-Route::resource('options', 'OptionController');
+Route::resource('option', 'OptionController');
 
 // Auth routes.
 Auth::routes();

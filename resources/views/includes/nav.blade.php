@@ -6,11 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="/manage">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          @foreach ($menu as $label => $route)
+          <li class="nav-item">
+            <a href="{{ route($route) }}" class="nav-link {{ Route::currentRouteName() === $route ? 'active' : '' }}">{{ $label }}</a>
           </li>
+          @endforeach
       </ul>
     </div>
   </div>

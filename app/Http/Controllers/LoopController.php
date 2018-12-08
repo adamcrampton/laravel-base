@@ -26,7 +26,10 @@ class LoopController extends PublicSiteController
 
         // Fetch page data for article loop.
         $this->pageData = $page->where('status', 'published')
-                                ->paginate($loopLimit);  
+                                ->paginate($loopLimit);
+
+        // Get menu items for this page type.
+        $this->menuData = $this->extractMenuItems('public_menu_items');
     }
 
     /**

@@ -12,6 +12,7 @@ class AppController extends Controller
     private $controllerType;
     protected $optionModel;
     protected $globalOptions;
+    protected $menuData;
     
     /**
      * Set up default items used in child controllers.
@@ -51,5 +52,19 @@ class AppController extends Controller
     private function getGlobalConfig()
     {
     	return $this->optionModel->getGlobalConfig();
+    }
+
+    /**
+     * Get menu items from options table.
+     *
+     * @param string $menuType
+     * @return array
+     */
+    protected function extractMenuItems($menuType)
+    {
+        $menuData = $this->optionModel->getOptionValue($menuType);
+
+        // Return an array for the front end.
+        return unserialize($menuData->first()->option_value);
     }
 }
