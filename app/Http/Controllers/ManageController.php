@@ -18,6 +18,9 @@ class ManageController extends AppController
 
         // Get menu items for this page type.
         $this->menuData = $this->extractMenuItems('manage_menu_items');
+
+        // Basic auth.
+        $this->middleware('auth');
     }
 
     /**
