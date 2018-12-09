@@ -41,7 +41,7 @@ class LoopController extends PublicSiteController
     {
         // Return public home page.
         return view('loop.index', [
-            'menuData' => $this->menuData,
+            'menu' => $this->menuData,
             'pageData' => $this->pageData,
             'sidebarData' => $this->sidebarData
         ]);
