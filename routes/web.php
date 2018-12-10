@@ -10,6 +10,5 @@ Route::resource('manage', 'ManageController');
 Route::resource('option', 'OptionController');
 
 // Auth routes.
-Auth::routes();
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Auth::routes(['register' => false]);
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
