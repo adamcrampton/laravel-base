@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -59,5 +60,21 @@ class UsersTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
         ]);
+
+        // Add roles to sample users.
+        $users = User::all();
+        $users->each(function($user, $key) {
+            switch ($user->id) {
+                case 1:
+                    $user->assignRole('administrator');
+                    break;
+                case 2:
+                    $user->assignRole('editor');
+                    break;
+                default:
+                    $user->assignRole('viewer');
+                    break;
+            }
+        });
     }
 }
