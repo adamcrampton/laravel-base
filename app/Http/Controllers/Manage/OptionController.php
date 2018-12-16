@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manage;
 
-use App\Models\Option;
 use Illuminate\Http\Request;
+use App\Models\Option;
+use App\Http\Controllers\ManageController as ManageController;
 
-class OptionController extends Controller
+class OptionController extends ManageController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,12 @@ class OptionController extends Controller
      */
     public function index()
     {
-        //
+        // Return manage options page.
+        return view('manage.option', [
+            'menu' => $this->menuData,
+            'pageTitle' => 'Manage Global Options',
+            'pageIntro' => 'Global option settings can be managed below.'
+        ]);
     }
 
     /**

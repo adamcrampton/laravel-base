@@ -40,8 +40,8 @@ class OptionsTableSeeder extends Seeder
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize([
                     'Admin Home' => 'manage.index',
-                    'Pages' => 'page.index',
-                    'Options' => 'option.index',
+                    'Pages' => 'manage.page.index',
+                    'Options' => 'manage.option.index',
                     'Log out' => 'logout'
                     ]),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

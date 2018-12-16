@@ -17,7 +17,7 @@ class PublicSiteController extends AppController
     {   
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('publicSite');    
-
+        
         // Get sidebar data.
         $this->sidebarData = $this->getSidebarData();
     }

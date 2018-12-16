@@ -62,9 +62,7 @@ class AppController extends Controller
      */
     protected function extractMenuItems($menuType)
     {
-        $menuData = $this->optionModel->getOptionValue($menuType);
-
-        // Return an array for the front end.
-        return unserialize($menuData->first()->option_value);
+        // Fetch menu data.
+        return unserialize($this->optionModel->getOptionValue($menuType)->first()->option_value);
     }
 }
