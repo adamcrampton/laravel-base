@@ -8,13 +8,23 @@ use App\Models\Page;
 
 class PageController extends ManageController
 {
+    private $statusParameter;
+
     /**
      * Set up default items used in the controller.
-     * @param Page   $page
+     * @param Page $page
+     * @param Request $request
      */
-    public function __construct(Page $page) {
+    public function __construct(Page $page, Request $request) {
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('page');
+
+        // Determine if status parameter passed in, and set if so.
+        $allowedStatuses = ['published', 'draft', 'trash'];
+
+        $this->statusParameter = $request->has('status') && in_array($request->status, $allowedStatuses) ? $request->status : 'published';
+
+        //TODO Fetch posts based on status param
     }
 
     /**
@@ -27,8 +37,7 @@ class PageController extends ManageController
         // Return manage pages page.
         return view('manage.page', [
             'menu' => $this->menuData,
-            'pageTitle' => 'Manage Pages',
-            'pageIntro' => 'Page listing below.'
+            'pageTitle' => 'Manage Pages'
         ]);
     }
 

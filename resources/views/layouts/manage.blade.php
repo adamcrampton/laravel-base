@@ -13,7 +13,9 @@
           <h1 class="mt-4">{{ $pageTitle }}</h1>
           <hr>
           <!-- Page Content -->
-          <p class="lead">{{ $pageIntro }}</p>
+          @isset($pageIntro)
+            <p class="lead">{!! $pageIntro !!}</p>
+          @endisset
           @yield('content')
           <hr>
         </div>
