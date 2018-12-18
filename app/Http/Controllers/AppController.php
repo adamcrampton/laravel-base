@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Option;
+use App\Models\Page;
 use App\Models\TaxonomyEntity;
 use Carbon\Carbon;
 
@@ -11,6 +12,7 @@ class AppController extends Controller
 {
     private $controllerType;
     protected $optionModel;
+    protected $pageModel;
     protected $globalOptions;
     protected $menuData;
     
@@ -21,7 +23,8 @@ class AppController extends Controller
     public function __construct($controllerType)
     {
     	// Create instances of required models.
-    	$this->optionModel = new Option;
+        $this->optionModel = new Option;
+        $this->pageModel = new Page;
         $this->taxonomyEntityModel = new TaxonomyEntity;
 
     	// Set controller type of child class.

@@ -28,6 +28,19 @@ class Page extends Model
     }
 
     /**
+     * Get pages for admin with optional pagination count and status flag.
+     *
+     * @param integer $paginateCount
+     * @param string $status
+     * @return\Illuminate\Database\Eloquent\Collection
+     */
+    public function getPagesForManage($paginateCount = 20, $status = 'published')
+    {
+        return Page::where('status', $status)
+            ->paginate($paginateCount);
+    }
+
+    /**
      * Get the user who owns this page.
      * @return\Illuminate\Database\Eloquent\Collection
      */
