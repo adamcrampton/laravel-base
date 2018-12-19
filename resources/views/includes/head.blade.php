@@ -12,6 +12,7 @@
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('vendor/venobox/css/venobox.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('vendor/tabulator-tables/css/tabulator_site.css') }}">
     
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">

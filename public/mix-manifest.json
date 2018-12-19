@@ -7,5 +7,6 @@
     "/js/page.js": "/js/page.js",
     "/js/manifest.js": "/js/manifest.js",
     "/vendor/bootstrap/css/bootstrap.min.css": "/vendor/bootstrap/css/bootstrap.min.css",
-    "/vendor/venobox/css/venobox.css": "/vendor/venobox/css/venobox.css"
+    "/vendor/venobox/css/venobox.css": "/vendor/venobox/css/venobox.css",
+    "/vendor/tabulator-tables/css/tabulator_site.css": "/vendor/tabulator-tables/css/tabulator_site.css"
 }
