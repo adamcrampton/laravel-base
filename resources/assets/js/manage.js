@@ -1,4 +1,2 @@
 // Utility functions for manage pages.
-$(document).ready(function() {
-	
-});
+const tabulator = require('tabulator-tables');

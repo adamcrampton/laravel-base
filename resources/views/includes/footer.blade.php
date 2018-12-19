@@ -11,6 +11,7 @@
 
     {{-- App Scripts --}}
     <script src="{{ URL::asset('js/app.js') }}"></script>
+    <script src="{{ URL::asset('js/manage.js') }}"></script>
     <script src="{{ URL::asset('js/page.js') }}"></script>
   </body>
 </html>
