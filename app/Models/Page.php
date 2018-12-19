@@ -8,6 +8,7 @@ class Page extends Model
 {	
     /**
      * Get the route key for the model.
+     * This allows us to use the uri value from the db rather than ID for routing.
      *
      * @return string
      */
@@ -19,7 +20,7 @@ class Page extends Model
 	/**
 	 * Get pages with optional limit.
 	 * @param int $limit Limit for query.
-	 * @return\Illuminate\Database\Eloquent\Collection
+	 * @return \Illuminate\Database\Eloquent\Collection
 	 */
     public function getPages($limit = 20) 
     {
@@ -32,7 +33,7 @@ class Page extends Model
      *
      * @param integer $paginateCount
      * @param string $status
-     * @return\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function getPagesForManage($paginateCount = 20, $status = 'published')
     {
@@ -42,7 +43,7 @@ class Page extends Model
 
     /**
      * Get the user who owns this page.
-     * @return\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function user()
     {
@@ -51,7 +52,7 @@ class Page extends Model
 
     /**
      * Get the taxonomy entities that are connected with this page.
-     * @return\Illuminate\Database\Eloquent\Collection
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function taxonomy_entities()
     {

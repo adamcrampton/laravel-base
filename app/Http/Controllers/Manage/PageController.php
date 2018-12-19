@@ -41,7 +41,8 @@ class PageController extends ManageController
         // Return manage pages page.
         return view('manage.page', [
             'menu' => $this->menuData,
-            'pageTitle' => 'Manage Pages'
+            'pageTitle' => 'Manage Pages',
+            'pageData' => $this->pageData
         ]);
     }
 
@@ -133,6 +134,6 @@ class PageController extends ManageController
      */
     private function getPageData($paginateCount = 20, $status = 'published')
     {
-        return $this->optionModel->getPagesForManage($paginateCount, $status);
+        return $this->pageModel->getPagesForManage($paginateCount, $status);
     }
 }
