@@ -19797,7 +19797,7 @@ var table = new Tabulator('#page-table', {
     moveableColumns: true,
     resizeableRows: false,
     initialSort: [{ column: "name", dir: "asc" }],
-    columns: [{ title: "Name", field: "name", editor: "input" }, { title: "Author", field: "author", editor: "input" }, { title: "Link", field: "uri" }, { title: "Image", field: "image_path" }, { title: "Created", field: "created_date" }, { title: "Last Updated", field: "updated_date" }]
+    columns: [{ title: "Title", field: "title", editor: "input" }, { title: "Author", field: "author", editor: "input" }, { title: "Link", field: "uri" }, { title: "Image", field: "image_path" }, { title: "Created", field: "created_at" }, { title: "Last Updated", field: "updated_at" }]
 });
 
 /***/ })

@@ -20,11 +20,11 @@ var table = new Tabulator('#page-table', {
         {column: "name", dir: "asc"}
     ],
     columns: [
-        {title: "Name", field: "name", editor: "input"},
-        {title: "Author", field: "author", editor: "input"},
+        {title: "Title", field: "title", editor: "input"},
+        {title: "Author", field: "user", editor: "input"},
         {title: "Link", field: "uri" },
         {title: "Image", field: "image_path"},
-        {title: "Created", field: "created_date"},
-        {title: "Last Updated", field: "updated_date" }
+        {title: "Created", field: "created_at"},
+        {title: "Last Updated", field: "updated_at" }
     ]
 });

@@ -24,8 +24,13 @@ class Page extends Model
 	 */
     public function getPages($limit = 20) 
     {
-    	return Page::all()
-    			->take($limit);
+    	$pageData = Page::all()
+                ->take($limit);
+                
+        // Add author names.
+        $pageData = $this->appendAuthors($pageData);
+
+        return $pageData;
     }
 
     /**
@@ -37,8 +42,28 @@ class Page extends Model
      */
     public function getPagesForManage($paginateCount = 20, $status = 'published')
     {
-        return Page::where('status', $status)
+        $pageData = Page::where('status', $status)
             ->paginate($paginateCount);
+
+        // Add author names.
+        $pageData = $this->appendAuthors($pageData);
+
+        return $pageData;
+    }
+
+    /**
+     * // Insert author names into the collection so they're available when we convert to JSON.
+     *
+     * @param \Illuminate\Database\Eloquent\Collection $pageData
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    private function appendAuthors($pageData)
+    {
+        $pageData->each(function($item, $key) {
+            $item->author = $item->user->name;
+        });
+
+        return $pageData;
     }
 
     /**
