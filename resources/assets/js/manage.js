@@ -1,12 +1,12 @@
 // Utility functions for manage pages.
 //====================================
-
-// Tabulator setup.
+// Import libraries.
 const Tabulator = require('tabulator-tables');
 
-console.log(tableData.data);
-
-var table = new Tabulator('#page-table', {
+// Tabulator setup.
+// ================
+// Page Management.
+var pageTable = new Tabulator('#page-table', {
     data: tableData.data,
     layout: "fitColumns",
     responsiveLayout: "hide",
@@ -20,11 +20,29 @@ var table = new Tabulator('#page-table', {
         {column: "name", dir: "asc"}
     ],
     columns: [
-        {title: "Title", field: "title", editor: "input"},
-        {title: "Author", field: "user", editor: "input"},
-        {title: "Link", field: "uri" },
-        {title: "Image", field: "image_path"},
-        {title: "Created", field: "created_at"},
-        {title: "Last Updated", field: "updated_at" }
+        {title: "Title", field: "title"},
+        {title: "Author", field: "author"},
+        {title: "Link", field: "uri",
+        formatter:"link", 
+            formatterParams:{
+                labelField:"uri",
+                urlPrefix:"/page/",
+                target:"_blank",
+            }
+        },
+        {title: "Image", field: "image_path", formatter:"image", 
+            formatterParams:{
+                height:"50px",
+                width:"50px"
+            }
+        },
+        {title: "Created", field: "created_at",
+        formatter:"datetime", formatterParams:{
+            inputFormat:"YYYY-MM-DD",
+            outputFormat:"DD/MM/YY"
+        }
+    },
+        {title: "Last Updated", field: "updated_at"},
+        {title: "Status", field: "status", editor: "select"}
     ]
 });
