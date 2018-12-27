@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ManageController as ManageController;
+use App\Models\Option;
 use App\Models\Page;
 
 class PageController extends ManageController
@@ -25,10 +26,9 @@ class PageController extends ManageController
 
         // Determine status parameter to use when fetching page data.
         $this->statusParameter = $this->getStatusParameter($request, $allowedStatuses);
-        
+
         // Set page data.
-        //TODO set option for admin pagination
-        $this->pageData = $this->getPageData(20, $this->statusParameter);
+        $this->pageData = $this->getPageData($this->paginationLimit, $this->statusParameter);
     }
 
     /**

@@ -9,6 +9,13 @@ use App\Models\Page;
 class ManageController extends AppController
 {
     /**
+     * Global pagination limit for pages in manage section.
+     *
+     * @var integer
+     */
+    protected $paginationLimit;
+
+    /**
      * Set up default items used in the controller.
      * @param string $controllerType
      */
@@ -20,6 +27,11 @@ class ManageController extends AppController
         // Get menu items for this page type.
         $this->menuData = $this->extractMenuItems('manage_menu_items');
 
+        // Set global pagination limit for manage section.
+        $this->paginationLimit = Option::where('option_name', 'manage_pagination')
+                                    ->first()
+                                    ->option_value;
+                                    
         // Basic auth.
         $this->middleware('auth');
     }
