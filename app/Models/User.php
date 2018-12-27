@@ -22,6 +22,12 @@ class User extends Authenticatable
     ];
 
     /**
+     * This needs to be added for the ACL to work.
+     * @var string
+     */
+    protected $guard_name = 'web';
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
