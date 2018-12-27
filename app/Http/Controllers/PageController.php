@@ -56,6 +56,7 @@ class PageController extends PublicSiteController
     public function show(Page $page)
     {
         return view('page.index', [
+            'menu' => $this->menuData,
             'pageValues' => $page,
             'sidebarData' => $this->sidebarData,
             'lastUpdated' => $this->formatDate($page->updated_at, 'post')

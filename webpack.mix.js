@@ -4,7 +4,7 @@ const mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
 	.js('resources/assets/js/page.js', 'public/js')
 	.js('resources/assets/js/manage.js', 'public/js')
-	.extract(['jquery', 'jquery-ui', 'bootstrap', 'lodash']);
+	.extract(['jquery', 'jquery-ui', 'bootstrap', 'lodash', 'moment']);
 
 
 // Compile LESS.

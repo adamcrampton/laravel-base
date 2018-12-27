@@ -18,6 +18,9 @@ class PublicSiteController extends AppController
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('publicSite');    
         
+        // Get menu items for this page type.
+        $this->menuData = $this->extractMenuItems('public_menu_items');
+
         // Get sidebar data.
         $this->sidebarData = $this->getSidebarData();
     }

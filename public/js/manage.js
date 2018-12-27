@@ -1,6 +1,59 @@
 webpackJsonp([2],{
 
-/***/ 10:
+/***/ 134:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(135);
+
+
+/***/ }),
+
+/***/ 135:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// Utility functions for manage pages.
+//====================================
+// Import libraries.
+var Tabulator = __webpack_require__(137);
+
+// Tabulator setup.
+// ================
+// Page Management.
+var pageTable = new Tabulator('#page-table', {
+    data: tableData.data,
+    layout: "fitColumns",
+    responsiveLayout: "hide",
+    tooltips: false,
+    history: true,
+    pagination: "local",
+    paginationSize: 10,
+    moveableColumns: true,
+    resizeableRows: false,
+    initialSort: [{ column: "name", dir: "asc" }],
+    columns: [{ title: "Title", field: "title" }, { title: "Author", field: "author" }, { title: "Link", field: "uri",
+        formatter: "link",
+        formatterParams: {
+            labelField: "uri",
+            urlPrefix: "/page/",
+            target: "_blank"
+        }
+    }, { title: "Image", field: "image_path", formatter: "image",
+        formatterParams: {
+            height: "50px",
+            width: "50px"
+        }
+    }, { title: "Created", field: "created_at",
+        formatter: "datetime", formatterParams: {
+            inputFormat: "YYYY-MM-DD",
+            outputFormat: "DD/MM/YY"
+        }
+    }, { title: "Last Updated", field: "updated_at" }, { title: "Status", field: "status", editor: "select" }]
+});
+
+/***/ }),
+
+/***/ 137:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -19765,41 +19818,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
 	return Tabulator;
 });
 
-/***/ }),
-
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(9);
-
-
-/***/ }),
-
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
-
-// Utility functions for manage pages.
-//====================================
-
-// Tabulator setup.
-var Tabulator = __webpack_require__(10);
-
-console.log(tableData.data);
-
-var table = new Tabulator('#page-table', {
-    data: tableData.data,
-    layout: "fitColumns",
-    responsiveLayout: "hide",
-    tooltips: false,
-    history: true,
-    pagination: "local",
-    paginationSize: 10,
-    moveableColumns: true,
-    resizeableRows: false,
-    initialSort: [{ column: "name", dir: "asc" }],
-    columns: [{ title: "Title", field: "title", editor: "input" }, { title: "Author", field: "author", editor: "input" }, { title: "Link", field: "uri" }, { title: "Image", field: "image_path" }, { title: "Created", field: "created_at" }, { title: "Last Updated", field: "updated_at" }]
-});
-
 /***/ })
 
-},[8]);
+},[134]);

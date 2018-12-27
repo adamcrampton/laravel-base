@@ -29,6 +29,13 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'option_nice_name' => 'Manage Area Pagination',
+                'option_name' => 'manage_pagination',
+                'option_value' => 10,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
                 'option_nice_name' => 'Public Menu Items',
                 'option_name' => 'public_menu_items',
                 'option_value' => serialize(['Manage' => 'manage.index']),
