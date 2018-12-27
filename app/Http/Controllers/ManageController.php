@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Option;
+use App\Models\Page;
 
 class ManageController extends AppController
 {
@@ -36,5 +37,17 @@ class ManageController extends AppController
             'pageTitle' => 'Manage Site',
             'pageIntro' => 'Admin options:'
         ]);
+    }
+
+    /**
+     * Get page data.
+     *
+     * @param integer $paginateCount
+     * @param string $status
+     * @return\Illuminate\Database\Eloquent\Collection
+     */
+    protected function getPageData($paginateCount = 20, $status = 'published')
+    {
+        return $this->pageModel->getPagesForManage($paginateCount, $status);
     }
 }

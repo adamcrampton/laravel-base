@@ -124,16 +124,4 @@ class PageController extends ManageController
     {
         return $request->has('status') && in_array($request->status, $allowedStatuses) ? $request->status : 'published';
     }
-
-    /**
-     * Get page data.
-     *
-     * @param integer $paginateCount
-     * @param string $status
-     * @return\Illuminate\Database\Eloquent\Collection
-     */
-    private function getPageData($paginateCount = 20, $status = 'published')
-    {
-        return $this->pageModel->getPagesForManage($paginateCount, $status);
-    }
 }
