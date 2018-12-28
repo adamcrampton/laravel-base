@@ -21,11 +21,8 @@ class PageController extends ManageController
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('page');
 
-        // Set allowed page statuses.
-        $allowedStatuses = ['published', 'draft', 'trash'];
-
         // Determine status parameter to use when fetching page data.
-        $this->statusParameter = $this->getStatusParameter($request, $allowedStatuses);
+        $this->statusParameter = $this->getStatusParameter($request, $this->pageStatusTypes);
 
         // Set page data.
         $this->pageData = $this->getPageData($this->paginationLimit, $this->statusParameter);

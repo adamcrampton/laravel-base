@@ -15,6 +15,7 @@ class AppController extends Controller
     protected $pageModel;
     protected $globalOptions;
     protected $menuData;
+    protected $pageStatusTypes;
     
     /**
      * Set up default items used in child controllers.
@@ -32,6 +33,9 @@ class AppController extends Controller
 
     	// Get default options and active page data.
         $this->globalOptions = $this->getGlobalConfig();
+
+        // Get page status types.
+        $this->pageStatusTypes = $this->getPageStatusTypes();
     }
 
     /**
@@ -67,5 +71,16 @@ class AppController extends Controller
     {
         // Fetch menu data.
         return unserialize($this->optionModel->getOptionValue($menuType)->first()->option_value);
+    }
+
+    /**
+     * Get page status types from options table.
+     *
+     * @return array
+     */
+    protected function getPageStatusTypes()
+    {
+        // Fetch page status types from options.
+        return unserialize($this->optionModel->getOptionValue('page_status_types')->first()->option_value);
     }
 }

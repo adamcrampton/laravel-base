@@ -29,21 +29,21 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'option_nice_name' => 'Manage Area Pagination',
-                'option_name' => 'manage_pagination',
-                'option_value' => 10,
+                'option_nice_name' => 'Page Status Types',
+                'option_name' => 'page_status_types',
+                'option_value' => serialize(['published', 'draft', 'trash']),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'option_nice_name' => 'Public Menu Items',
+                'option_nice_name' => 'Public Front End Menu Items',
                 'option_name' => 'public_menu_items',
                 'option_value' => serialize(['Manage' => 'manage.index']),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'option_nice_name' => 'Manage Menu Items',
+                'option_nice_name' => 'Manage Section Menu Items',
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize([
                     'Admin Home' => 'manage.index',
@@ -53,7 +53,14 @@ class OptionsTableSeeder extends Seeder
                     ]),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ]
+            ],
+            [
+                'option_nice_name' => 'Manage Section Pagination',
+                'option_name' => 'manage_pagination',
+                'option_value' => 10,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ]   
         ]);
     }
 }
