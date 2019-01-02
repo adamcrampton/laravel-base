@@ -18,6 +18,7 @@ class CreateOptionsTable extends Migration
             $table->string('option_nice_name');
             $table->string('option_name');
             $table->string('option_value');
+            $table->string('option_data_type');
             $table->timestamps();
         });
     }

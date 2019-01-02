@@ -3,11 +3,22 @@
 namespace App\Http\Controllers\Manage;
 
 use Illuminate\Http\Request;
-use App\Models\Option;
 use App\Http\Controllers\ManageController as ManageController;
+use App\Models\Option;
 
 class OptionController extends ManageController
 {
+    protected $preparedOptionData;
+    
+    /**
+     * Set up default items used in the controller.
+     * @param Option $option
+     */
+    public function __construct(Option $option) {
+        //TODO
+        $this->preparedOptionData = [];
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +30,8 @@ class OptionController extends ManageController
         return view('manage.option', [
             'menu' => $this->menuData,
             'pageTitle' => 'Manage Global Options',
-            'pageIntro' => 'Global option settings can be managed below.'
+            'pageIntro' => 'Global option settings can be managed below.',
+            'optionData' => $this->preparedOptionData
         ]);
     }
 
