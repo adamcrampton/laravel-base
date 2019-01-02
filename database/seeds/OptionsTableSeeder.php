@@ -50,7 +50,6 @@ class OptionsTableSeeder extends Seeder
                 'option_nice_name' => 'Manage Section Menu Items',
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize([
-                    'option_data_type' => 'string',
                     'Admin Home' => 'manage.index',
                     'Pages' => 'manage.page.index',
                     'Options' => 'manage.option.index',
