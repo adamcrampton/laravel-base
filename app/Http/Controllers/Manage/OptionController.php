@@ -15,8 +15,11 @@ class OptionController extends ManageController
      * @param Option $option
      */
     public function __construct(Option $option) {
-        //TODO
-        $this->preparedOptionData = [];
+        // Initialise parent constructor.
+        parent::__construct();
+
+        // Get prepared option data for front end.
+        $this->preparedOptionData = $option->prepareOptionData('fetch');
     }
 
     /**
