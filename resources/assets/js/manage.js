@@ -7,7 +7,7 @@ const Tabulator = require('tabulator-tables');
 // ================
 // Page Management.
 var pageTable = new Tabulator('#page-table', {
-    data: tableData.data,
+    data: tableData,
     layout: "fitColumns",
     responsiveLayout: "hide",
     tooltips: false,

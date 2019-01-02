@@ -42,8 +42,18 @@ class Page extends Model
      */
     public function getPagesForManage($paginateCount = 20, $status = 'published')
     {
+        // Return a paginated object if Laravel pagination is being used.
+        // Otherwise, just return the collection.
+        // Note: These return different types of objects - so ensure your code expects the correct data format.
         $pageData = Page::where('status', $status)
-            ->paginate($paginateCount);
+        ->when($paginateCount, 
+            function($query, $paginateCount) {
+                return $query->paginate($paginateCount);
+            },
+            function($query) {
+                return $query->get();
+            }
+        );
 
         // Add author names.
         $pageData = $this->appendAuthors($pageData);

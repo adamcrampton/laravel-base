@@ -20,7 +20,7 @@ var Tabulator = __webpack_require__(137);
 // ================
 // Page Management.
 var pageTable = new Tabulator('#page-table', {
-    data: tableData.data,
+    data: tableData,
     layout: "fitColumns",
     responsiveLayout: "hide",
     tooltips: false,

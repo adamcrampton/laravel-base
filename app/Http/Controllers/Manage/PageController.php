@@ -24,8 +24,9 @@ class PageController extends ManageController
         // Determine status parameter to use when fetching page data.
         $this->statusParameter = $this->getStatusParameter($request, $this->pageStatusTypes);
 
-        // Set page data.
-        $this->pageData = $this->getPageData($this->paginationLimit, $this->statusParameter);
+        // Get page data.
+        // Note: We will use Tabulator to display the data, so set pagination value (first parameter) to null.
+        $this->pageData = $this->getPageData(null, $this->statusParameter);
     }
 
     /**
