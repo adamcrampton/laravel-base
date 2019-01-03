@@ -15,6 +15,7 @@ class OptionsTableSeeder extends Seeder
         // Add default config.
         DB::table('options')->insert([
             [
+                'uri' => 'site-admin-email',
                 'option_nice_name' => 'Site Admin Email',
                 'option_name' => 'global_email',
                 'option_value' => 'admin@site.com',
@@ -23,6 +24,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'uri' => 'post-loop-limit',
                 'option_nice_name' => 'Post Loop Limit',
                 'option_name' => 'post_loop_limit',
                 'option_value' => 10,
@@ -31,6 +33,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'uri' => 'post-status-types',
                 'option_nice_name' => 'Page Status Types',
                 'option_name' => 'page_status_types',
                 'option_value' => serialize(['published', 'draft', 'trash']),
@@ -39,6 +42,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'uri' => 'public-menu-items',
                 'option_nice_name' => 'Public Front End Menu Items',
                 'option_name' => 'public_menu_items',
                 'option_value' => serialize([
@@ -49,6 +53,7 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'uri' => 'manage-menu-items',
                 'option_nice_name' => 'Manage Section Menu Items',
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize([
@@ -62,8 +67,18 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
+                'uri' => 'manage-pagination',
                 'option_nice_name' => 'Manage Section Pagination',
                 'option_name' => 'manage_pagination',
+                'option_value' => 10,
+                'option_data_type' => 'integer',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'uri' => 'public-pagination',
+                'option_nice_name' => 'Public Site Pagination',
+                'option_name' => 'public_pagination',
                 'option_value' => 10,
                 'option_data_type' => 'integer',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
