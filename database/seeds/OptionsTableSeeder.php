@@ -41,7 +41,9 @@ class OptionsTableSeeder extends Seeder
             [
                 'option_nice_name' => 'Public Front End Menu Items',
                 'option_name' => 'public_menu_items',
-                'option_value' => serialize(['Manage' => 'manage.index']),
+                'option_value' => serialize([
+                    'manage.index' => 'Manage'
+                ]),
                 'option_data_type' => 'serialized',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -50,10 +52,10 @@ class OptionsTableSeeder extends Seeder
                 'option_nice_name' => 'Manage Section Menu Items',
                 'option_name' => 'manage_menu_items',
                 'option_value' => serialize([
-                    'Admin Home' => 'manage.index',
-                    'Pages' => 'manage.page.index',
-                    'Options' => 'manage.option.index',
-                    'Log out' => 'logout'
+                    'manage.index' => 'Admin Home',
+                    'manage.page.index' => 'Pages',
+                    'manage.option.index' => 'Options',
+                    'logout' => 'Log out'
                 ]),
                 'option_data_type' => 'serialized',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
