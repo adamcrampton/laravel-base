@@ -6,14 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Option extends Model
 {	
-	private $optionDataTypes;
-
 	/**
      * Set up default items used in the model.
      */
     public function __construct() {
-		// Set array of data types used by options.
-		$this->optionDataTypes = [];
+		//
 	}
 
 	/**

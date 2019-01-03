@@ -10,6 +10,7 @@
                 <th>Option Name</th>
                 <th>Option Value</th>
                 <th>Last Updated</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <td>{{ $optionValues->option_nice_name }}</td>
                 <td>{{ is_array($optionValues->option_value_formatted) ? implode(', ', $optionValues->option_value_formatted) : $optionValues->option_value_formatted }}</td>
                 <td>{{ $optionValues->updated_at }}</td>
+                <td><a href="/manage/option/{{$optionValues->id}}">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
