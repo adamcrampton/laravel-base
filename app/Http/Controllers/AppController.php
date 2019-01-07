@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menu;
 use App\Models\Option;
 use App\Models\Page;
 use App\Models\TaxonomyEntity;
@@ -23,7 +24,8 @@ class AppController extends Controller
      */
     public function __construct($controllerType)
     {
-    	// Create instances of required models.
+        // Create instances of required models.
+        $this->menuModel = new Menu;
         $this->optionModel = new Option;
         $this->pageModel = new Page;
         $this->taxonomyEntityModel = new TaxonomyEntity;
@@ -70,7 +72,7 @@ class AppController extends Controller
     protected function extractMenuItems($menuType)
     {
         // Fetch menu data.
-        return unserialize($this->optionModel->getOptionValue($menuType)->first()->option_value);
+        return unserialize($this->menuModel->getMenuData($menuType)->menu_items);
     }
 
     /**

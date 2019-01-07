@@ -25,7 +25,7 @@ class ManageController extends AppController
         parent::__construct('manage');
 
         // Get menu items for this page type.
-        $this->menuData = $this->extractMenuItems('manage_menu_items');
+        $this->menuData = $this->extractMenuItems('manage-menu');
 
         // Set global pagination limit for manage section.
         $this->paginationLimit = Option::where('option_name', 'manage_pagination')

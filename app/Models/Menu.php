@@ -16,4 +16,15 @@ class Menu extends Model
     {
         return 'menu_name';
     }
+
+    /**
+     * Fetch all data for a type of menu.
+     *
+     * @param string $menuType
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getMenuData($menuType = 'public-menu')
+    {
+        return Menu::where('menu_name', $menuType)->first();
+    }
 }

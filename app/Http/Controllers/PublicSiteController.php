@@ -19,7 +19,7 @@ class PublicSiteController extends AppController
         parent::__construct('publicSite');    
         
         // Get menu items for this page type.
-        $this->menuData = $this->extractMenuItems('public_menu_items');
+        $this->menuData = $this->extractMenuItems('public-menu');
 
         // Get sidebar data.
         $this->sidebarData = $this->getSidebarData();

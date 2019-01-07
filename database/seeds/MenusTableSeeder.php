@@ -17,16 +17,6 @@ class MenusTableSeeder extends Seeder
                 'menu_nice_name' => 'Manage Menu',
                 'menu_name' => 'manage-menu',
                 'menu_items' => serialize([
-                    'manage.index' => 'Manage'
-                ]),
-                'menu_order' => serialize([
-                    1 => 'Manage'
-                ])
-            ],
-            [
-                'menu_nice_name' => 'Public Menu',
-                'menu_name' => 'public-menu',
-                'menu_items' => serialize([
                     'manage.index' => 'Admin Home',
                     'manage.page.index' => 'Pages',
                     'manage.option.index' => 'Options',
@@ -37,6 +27,16 @@ class MenusTableSeeder extends Seeder
                     2 => 'Pages',
                     3 => 'Options',
                     4 => 'Log Out'
+                ])   
+            ],
+            [
+                'menu_nice_name' => 'Public Menu',
+                'menu_name' => 'public-menu',
+                'menu_items' => serialize([
+                    'manage.index' => 'Manage'
+                ]),
+                'menu_order' => serialize([
+                    1 => 'Manage'
                 ])
             ]
         ]);
