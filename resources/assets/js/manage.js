@@ -6,16 +6,40 @@ const Tabulator = require('tabulator-tables');
 // Manage page JS.
 // ===============
 $(document).ready(function() {
+    // Trigger focus whenever modal is shown.
+    $('#manage-modal').on('shown.bs.modal', function () {
+        $('#optionInput').trigger('focus');
+    });
+
+    // Update and show option modal.
     $('#addNewMultiOption').on('click', function(e) {
         // Fetch and parse JSON stored in the page markup.
         var jsonData = $(this).closest('.option-dropdown').attr('data-modal-json');
         var modalJSON = JSON.parse(jsonData);
 
         // Set modal title.
-        $('#manage-modal .modal-title').text('Add new ' + modalJSON.option_nice_name);
+        $('#manage-modal .modal-title').text('Add new: ' + modalJSON.option_nice_name);
 
         // Show modal.
         $('#manage-modal').modal('show');
+    });
+
+    // Update the associated dropdown with the new value.
+    $('#manage-modal-update').on('click', function(e) {
+        // Target div will have an id of the data attribute connected to this button.
+        var targetContainer = $(this).attr('data-option-name');
+
+        // Get value of input.
+        var optionInput = $('#optionInput').val();
+
+        // Set value index value for new item.
+        var optionIndex = $('.dropdown-item').length;
+
+        // Add new item to list.
+        $(targetContainer + ' .dropdown-menu-options').append('<span class="dropdown-item"><input type="checkbox" data-dropdownId="'+ optionIndex +'" id="optionDropdownCheck" class="form-check-input" checked>'+ optionInput +'</span>');
+
+        // Close modal.
+        $('#manage-modal').modal('hide');
     });
 });
 

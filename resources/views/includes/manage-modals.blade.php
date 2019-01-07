@@ -10,11 +10,11 @@
         </div>
         <div class="modal-body">
             <p>
-                <input class="form-control" placeholder="Add a value...">
+                <input id="optionInput" class="form-control" placeholder="Add a value...">
             </p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" id="manage-modal-update" class="btn btn-primary" data-option-name="{{ $optionValues->optionName }}">Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
         </div>

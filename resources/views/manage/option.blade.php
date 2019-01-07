@@ -24,14 +24,17 @@
                     <div id="{{ $optionValues->option_name }}" class="dropdown option-dropdown" data-modal-json='{"option_name": "{{ $optionValues->option_name }}", "option_nice_name": "{{ $optionValues->option_nice_name }}" }'>
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="optionDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See options</button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            @foreach($optionValues->option_value_formatted as $index => $formatted_value)
-                            <span class="dropdown-item">
-                                <input type="checkbox" data-dropdownId="{{ $index }}" id="optionDropdownCheck" class="form-check-input" checked>{{ $formatted_value }}
-                            </span>
-                            @endforeach
-                            <span class="dropdown-item">
+                            <div class="dropdown-menu-options">
+                                @foreach($optionValues->option_value_formatted as $index => $formatted_value)
+                                <span class="dropdown-item">
+                                    <input type="checkbox" data-dropdownId="{{ $index }}" id="optionDropdownCheck" class="form-check-input" checked>{{ $formatted_value }}
+                                </span>
+                                @endforeach
+                            </div>
+                            <hr>
+                            <div class="text-center">
                                 <button id="addNewMultiOption" type="button" class="btn btn-primary">Add New</button>
-                            </span>
+                            </div>
                         </div>
                     </div>
                 </td>
