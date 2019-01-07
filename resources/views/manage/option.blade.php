@@ -2,8 +2,7 @@
 
 @section('content')
 
-{{-- Display data within this element using Tabulator. --}}
-<div id="page-table">
+<div id="option-table">
     <form method="post" action="" class="form">
     @csrf
     <table class="table">
