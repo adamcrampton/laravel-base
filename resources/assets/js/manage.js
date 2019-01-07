@@ -7,7 +7,14 @@ const Tabulator = require('tabulator-tables');
 // ===============
 $(document).ready(function() {
     $('#addNewMultiOption').on('click', function(e) {
-        console.log('click');
+        // Fetch and parse JSON stored in the page markup.
+        var jsonData = $(this).closest('.option-dropdown').attr('data-modal-json');
+        var modalJSON = JSON.parse(jsonData);
+
+        // Set modal title.
+        $('#manage-modal .modal-title').text('Add new ' + modalJSON.option_nice_name);
+
+        // Show modal.
         $('#manage-modal').modal('show');
     });
 });

@@ -21,10 +21,8 @@
                 @if (is_array($optionValues->option_value_formatted))
                 {{-- Represent arrays as a list with checkbox values --}}
                 <td>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            See options
-                        </button>
+                    <div id="{{ $optionValues->option_name }}" class="dropdown option-dropdown" data-modal-json='{"option_name": "{{ $optionValues->option_name }}", "option_nice_name": "{{ $optionValues->option_nice_name }}" }'>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="optionDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See options</button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @foreach($optionValues->option_value_formatted as $index => $formatted_value)
                             <span class="dropdown-item">
@@ -32,7 +30,7 @@
                             </span>
                             @endforeach
                             <span class="dropdown-item">
-                                <button id="addNewMultiOption" class="btn btn-primary" type="button">Add New</button>
+                                <button id="addNewMultiOption" type="button" class="btn btn-primary">Add New</button>
                             </span>
                         </div>
                     </div>
