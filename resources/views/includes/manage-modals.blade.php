@@ -1,5 +1,5 @@
 {{-- Generic modal markup to be dynamically populated/updated --}}
-<div class="modal" id="manage-modal" tabindex="-1" role="dialog">
+<div class="modal" id="manageModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="modal-footer">
-        <button type="button" id="manage-modal-update" class="btn btn-primary" data-option-name="{{ $optionValues->optionName }}">Save changes</button>
+        <button type="button" id="manageModalUpdate" class="btn btn-primary" data-option-name="{{ $optionValues->optionName }}">Save changes</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
         </div>

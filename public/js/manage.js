@@ -20,7 +20,7 @@ var Tabulator = __webpack_require__(137);
 // ===============
 $(document).ready(function () {
     // Trigger focus whenever modal is shown.
-    $('#manage-modal').on('shown.bs.modal', function () {
+    $('#manageModal').on('shown.bs.modal', function () {
         $('#optionInput').trigger('focus');
     });
 
@@ -31,14 +31,17 @@ $(document).ready(function () {
         var modalJSON = JSON.parse(jsonData);
 
         // Set modal title.
-        $('#manage-modal .modal-title').text('Add new: ' + modalJSON.option_nice_name);
+        $('#manageModal .modal-title').text('Add new: ' + modalJSON.option_nice_name);
+
+        // Clear input.
+        $('#optionInput').val('');
 
         // Show modal.
-        $('#manage-modal').modal('show');
+        $('#manageModal').modal('show');
     });
 
     // Update the associated dropdown with the new value.
-    $('#manage-modal-update').on('click', function (e) {
+    $('#manageModalUpdate').on('click', function (e) {
         // Target div will have an id of the data attribute connected to this button.
         var targetContainer = $(this).attr('data-option-name');
 
@@ -52,7 +55,7 @@ $(document).ready(function () {
         $(targetContainer + ' .dropdown-menu-options').append('<span class="dropdown-item"><input type="checkbox" data-dropdownId="' + optionIndex + '" id="optionDropdownCheck" class="form-check-input" checked>' + optionInput + '</span>');
 
         // Close modal.
-        $('#manage-modal').modal('hide');
+        $('#manageModal').modal('hide');
     });
 });
 
