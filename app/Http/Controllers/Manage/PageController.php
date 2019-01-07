@@ -21,6 +21,9 @@ class PageController extends ManageController
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('page');
 
+        // Set controller type.
+        $this->controllerType = 'page';
+
         // Determine status parameter to use when fetching page data.
         $this->statusParameter = $this->getStatusParameter($request, $this->pageStatusTypes);
 
@@ -40,7 +43,8 @@ class PageController extends ManageController
         return view('manage.page', [
             'menu' => $this->menuData,
             'pageTitle' => 'Manage Pages',
-            'pageData' => $this->pageData
+            'pageData' => $this->pageData,
+            'modelName' => $this->controllerType
         ]);
     }
 

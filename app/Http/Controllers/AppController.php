@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 class AppController extends Controller
 {
-    private $controllerType;
+    protected $controllerType;
     protected $optionModel;
     protected $pageModel;
     protected $globalOptions;
@@ -22,7 +22,7 @@ class AppController extends Controller
      * Set up default items used in child controllers.
      * @param string $controllerType
      */
-    public function __construct($controllerType)
+    public function __construct($controllerType = 'App')
     {
         // Create instances of required models.
         $this->menuModel = new Menu;

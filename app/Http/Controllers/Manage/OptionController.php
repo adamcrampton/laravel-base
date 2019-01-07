@@ -16,7 +16,10 @@ class OptionController extends ManageController
      */
     public function __construct(Option $option) {
         // Initialise parent constructor.
-        parent::__construct();
+        parent::__construct('option');
+
+        // Set controller type.
+        $this->controllerType = 'option';
 
         // Get prepared option data for front end.
         $this->preparedOptionData = $option->prepareOptionData('fetch');
@@ -34,7 +37,8 @@ class OptionController extends ManageController
             'menu' => $this->menuData,
             'pageTitle' => 'Manage Global Options',
             'pageIntro' => 'Global option settings can be managed below.',
-            'optionData' => $this->preparedOptionData
+            'optionData' => $this->preparedOptionData,
+            'modelName' => $this->controllerType
         ]);
     }
 

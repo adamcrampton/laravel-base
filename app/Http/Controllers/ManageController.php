@@ -19,7 +19,7 @@ class ManageController extends AppController
      * Set up default items used in the controller.
      * @param string $controllerType
      */
-    public function __construct()
+    public function __construct($controllerType = 'manage')
     {
         // Initialise parent constructor, passing in controller type value.
         parent::__construct('manage');
@@ -47,7 +47,8 @@ class ManageController extends AppController
         return view('manage.index', [
             'menu' => $this->menuData,
             'pageTitle' => 'Manage Site',
-            'pageIntro' => 'Admin options:'
+            'pageIntro' => 'Admin options:',
+            'modelName' => $this->controllerType
         ]);
     }
 

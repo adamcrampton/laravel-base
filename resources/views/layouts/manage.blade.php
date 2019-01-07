@@ -23,5 +23,7 @@
       <!-- /.row -->
     </div>
     <!-- /.container -->
+    {{-- Modals --}}
+    @include('includes.manage-modals')
     {{-- Footer --}}
   @include('includes.footer')
