@@ -3,7 +3,7 @@
 @section('content')
 
 <ul>
-  @foreach ($menu as $label => $route)
+  @foreach ($menu as $route => $label)
   <li>
     <a href="{{ route($route) }}">{{ $label }}</a>
   </li>
