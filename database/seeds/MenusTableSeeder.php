@@ -15,7 +15,7 @@ class MenusTableSeeder extends Seeder
         DB::table('menus')->insert([
             [
                 'menu_nice_name' => 'Manage Menu',
-                'menu_name' => 'manage_menu',
+                'menu_name' => 'manage-menu',
                 'menu_items' => serialize([
                     'manage.index' => 'Manage'
                 ]),
@@ -25,7 +25,7 @@ class MenusTableSeeder extends Seeder
             ],
             [
                 'menu_nice_name' => 'Public Menu',
-                'menu_name' => 'public_menu',
+                'menu_name' => 'public-menu',
                 'menu_items' => serialize([
                     'manage.index' => 'Admin Home',
                     'manage.page.index' => 'Pages',
