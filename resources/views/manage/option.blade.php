@@ -21,7 +21,7 @@
                 @if (is_array($optionValues->option_value_formatted))
                 {{-- Represent arrays as a list with checkbox values --}}
                 <td>
-                    <div id="{{ $optionValues->option_name }}" class="dropdown option-dropdown" data-modal-json='{"option_name": "{{ $optionValues->option_name }}", "option_nice_name": "{{ $optionValues->option_nice_name }}" }'>
+                    <div id="{{ $optionValues->option_name }}" class="dropdown item-dropdown" data-modal-json='{"item_name": "{{ $optionValues->option_name }}", "item_nice_name": "{{ $optionValues->option_nice_name }}" }'>
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="optionDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">See options</button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <div class="dropdown-menu-options">
@@ -33,7 +33,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <button id="addNewMultiOption" type="button" class="btn btn-primary">Add New</button>
+                                <button id="addNewMultiItem" type="button" class="btn btn-primary">Add New</button>
                             </div>
                         </div>
                     </div>
@@ -49,6 +49,11 @@
                 @endif
             </tr>
             @endforeach
+            <tr>
+                <td colspan=3>
+                    <button type="submit" class="btn btn-primary float-sm-right">Submit</button>
+                </td>
+            </tr>
         </tbody>
     </table>
     </form>

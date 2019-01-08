@@ -16,47 +16,48 @@ module.exports = __webpack_require__(136);
 // Import libraries.
 var Tabulator = __webpack_require__(137);
 
-// Manage page JS.
-// ===============
-$(document).ready(function () {
-    // Trigger focus whenever modal is shown.
-    $('#manageModal').on('shown.bs.modal', function () {
-        $('#optionInput').trigger('focus');
-    });
+// Modal functions.
+// ================
+// Trigger focus whenever modal is shown.
+$('#manageModal').on('shown.bs.modal', function () {
+    $('#manageModalInput').trigger('focus');
+});
 
-    // Update and show option modal.
-    $('#addNewMultiOption').on('click', function (e) {
-        // Fetch and parse JSON stored in the page markup.
-        var jsonData = $(this).closest('.option-dropdown').attr('data-modal-json');
-        var modalJSON = JSON.parse(jsonData);
+// Dynamically update modal values and show.
+$('#addNewMultiItem').on('click', function (e) {
+    // Fetch and parse JSON stored in the page markup.
+    var jsonData = $(this).closest('.item-dropdown').attr('data-modal-json');
+    var modalJSON = JSON.parse(jsonData);
 
-        // Set modal title.
-        $('#manageModal .modal-title').text('Add new: ' + modalJSON.option_nice_name);
+    // Set modal title.
+    $('#manageModal .modal-title').text('Add new: ' + modalJSON.item_nice_name);
 
-        // Clear input.
-        $('#optionInput').val('');
+    // Clear input.
+    $('#manageModalInput').val('');
 
-        // Show modal.
-        $('#manageModal').modal('show');
-    });
+    // Set data attribute on the button.
+    $('#manageModalUpdate').attr('data-option-name', modalJSON.item_name);
 
-    // Update the associated dropdown with the new value.
-    $('#manageModalUpdate').on('click', function (e) {
-        // Target div will have an id of the data attribute connected to this button.
-        var targetContainer = $(this).attr('data-option-name');
+    // Show modal.
+    $('#manageModal').modal('show');
+});
 
-        // Get value of input.
-        var optionInput = $('#optionInput').val();
+// Update the associated dropdown with the new value.
+$('#manageModalUpdate').on('click', function (e) {
+    // Target div will have an id of the data attribute connected to this button.
+    var targetContainer = $(this).attr('data-option-name');
 
-        // Set value index value for new item.
-        var optionIndex = $('.dropdown-item').length;
+    // Get value of input.
+    var modalInput = $('#manageModalInput').val();
 
-        // Add new item to list.
-        $(targetContainer + ' .dropdown-menu-options').append('<span class="dropdown-item"><input type="checkbox" data-dropdownId="' + optionIndex + '" id="optionDropdownCheck" class="form-check-input" checked>' + optionInput + '</span>');
+    // Set value index value for new item.
+    var itemIndex = $('.dropdown-item').length;
 
-        // Close modal.
-        $('#manageModal').modal('hide');
-    });
+    // Add new item to list.
+    $('#' + targetContainer).find('.dropdown-menu-options').append('<span class="dropdown-item"><input type="checkbox" data-dropdownId="' + itemIndex + '" id="optionDropdownCheck" class="form-check-input" checked>' + modalInput + '</span>');
+
+    // Close modal.
+    $('#manageModal').modal('hide');
 });
 
 // Tabulator setup.
